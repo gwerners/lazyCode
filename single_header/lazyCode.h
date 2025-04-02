@@ -2563,7 +2563,7 @@ decltype(auto) limit(size_t n, Generator&& gen = GeneratorHole()) {
             return generator(
                 wrapIfRef(std::forward<Gen>(gen)),
                 [count, n](auto&& gen) mutable -> OptionOrRef<YieldType> {
-                    if (count++ < n) {
+                    if (++count < n) {
                         return next(gen);
                     } else {
                         return nullopt;
