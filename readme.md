@@ -487,7 +487,7 @@ decltype(auto) write(Stream&& stream, Interleave i,
 
 * More details coming soon.  Here a toy example, a generator that generates powers of 2 up to 1024.
     ```c++
-    auto g = lz::generator(1, [](int i) -> lz::optional<int> {
+    auto g = lz::generator(1, [](int &i) -> lz::optional<int> {
         i * = 2;
         if (i <= 1024) {
             return i;
